@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>变量和类型</title>
+    <link href="/cannie-luo.guthub.io/2024/06/23/%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%9E%8B/"/>
+    <url>/cannie-luo.guthub.io/2024/06/23/%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%9E%8B/</url>
+    
+    <content type="html"><![CDATA[<p>在C++中，声明一个变量的格式是<font color='red'>类型 变量名</font>，其中变量之间逗号分隔，以分号为结束。C++语言定义了几种基本类型：字符型、整型、浮点型、布尔型、void等，除此之外还提供了可用于<strong>自定义数据类型</strong>的机制，标准库利用这一机制定义更多复杂的类型，比如可变长度的string、vector等类型。开发者还可以根据修改组合的方式形成复合类型。</p><h2 id="基本内置类型"><a href="#基本内置类型" class="headerlink" title="基本内置类型"></a>基本内置类型</h2><h3 id="算术类型"><a href="#算术类型" class="headerlink" title="算术类型"></a>算术类型</h3><p>C++定义了字符类型、整型、浮点型、布尔型以及void的特殊类型<br>算术类型的存储空间根据机器而定。存储空间中最小单位<strong color='red'>位(bit)数</strong>。<br>| 类型名 | 含义  | 字节数| 取值范围 |<br>| :—   | :— |:—   | :—      |<br>| int    | 整型，表示整数| 4 | -2^31 ~ 2^31 -1 |<br>| long   | 长整型，表示整数| 4 | -2^31 ~ 2^31 -1|<br>| short  | 短整型，表示整数| 2 | -2^15 ~ 2^15 -1 |<br>| unsigned int | 无符号整型，表示非负数 | 4  | 0 ~ 2^32 -1 |<br>| unsigned short | 无符号短整型、表示非负整数| 2 | 0 ～2^16 -1 |<br>| unsigned long  | 无符号长整型、表示非负整数| 4 | 0 ～2^32 -1 |<br>| long long      | 64位整型，表示整数        | 8 | -2^63 ~ 2^63 -1|<br>| unsigned long long | 64位无符号整型、表示非负整型 | 8 | 0 ~ 2^63 -1 |<br>| float         | 单精度实数型，表示实数  | 4 | 3.4 * 10^-38 ~  3.4 * 10^38|<br>| double        | 双精度实数型，表示实数  | 8 | 1.7 * 10^-308  ~  1.7 * 10^308 |<br>| char          | 字符型，表示字符        | 1 | -128 ～ 127 |<br>| unsigned char | 无符号字符型，表示字符  | 1 | 0 ～ 255    |<br>| bool          | 布尔类型，表示真假      | 1 | true 或者 false  |</p><h3 id="内置类型之间的转换"><a href="#内置类型之间的转换" class="headerlink" title="内置类型之间的转换"></a>内置类型之间的转换</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++学习笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>深入理解顶层const和底层const</title>
     <link href="/cannie-luo.guthub.io/2024/06/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E9%A1%B6%E5%B1%82const%E5%92%8C%E5%BA%95%E5%B1%82const/"/>
     <url>/cannie-luo.guthub.io/2024/06/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E9%A1%B6%E5%B1%82const%E5%92%8C%E5%BA%95%E5%B1%82const/</url>
