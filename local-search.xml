@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>深入理解顶层const和底层const</title>
+    <link href="/cannie-luo.guthub.io/2024/06/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E9%A1%B6%E5%B1%82const%E5%92%8C%E5%BA%95%E5%B1%82const/"/>
+    <url>/cannie-luo.guthub.io/2024/06/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E9%A1%B6%E5%B1%82const%E5%92%8C%E5%BA%95%E5%B1%82const/</url>
+    
+    <content type="html"><![CDATA[<h2 id="如何理解顶层const和底层const"><a href="#如何理解顶层const和底层const" class="headerlink" title="如何理解顶层const和底层const"></a>如何理解顶层const和底层const</h2><p>《C++ primer》中写到：</p><blockquote><ul><li>顶层const表示指针本身是一个常量</li><li>底层const表示指针所指的对象是一个常量<br>指针类型既可以是顶层const又可以是底层const。</li></ul></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br><span class="hljs-type">int</span> *<span class="hljs-type">const</span> p1 = &amp;i;        <span class="hljs-comment">// 不能改变p1的值，这是一个顶层const</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> ci = <span class="hljs-number">2</span>;   <span class="hljs-comment">// 不能改变ci的值，这是一个顶层const</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> *p2 = &amp;ci;       <span class="hljs-comment">// 可以改变p2的值，这是一个底层const</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> *<span class="hljs-type">const</span> p3 = p2;  <span class="hljs-comment">// 靠右的const是顶层const，靠左的const是底层const</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> &amp;ri = ci;        <span class="hljs-comment">// 用于声明引用的const都是底层const</span><br></code></pre></td></tr></table></figure><p>即（除了const int ci &#x3D; 2; &#x2F;&#x2F;是顶层const): </p><blockquote><ul><li>如果const右结合修饰为类型或者*，那这个const就是一个底层const:</li><li>如果const右结合修饰为标识符，那这个const就是一个顶层const;</li></ul></blockquote><p>是不是感觉很绕口，个人的理解是</p><blockquote><ul><li>被修饰的变量本身无法改变的const是顶层const；</li><li>通过指针或者引用等间接途径来限制目标内容不可改变的const是底层const;</li></ul></blockquote><p>实际就是取决const修饰的是谁，从右往左看const是修饰谁决定</p><h2 id="顶层const和底层const的区别"><a href="#顶层const和底层const的区别" class="headerlink" title="顶层const和底层const的区别"></a>顶层const和底层const的区别</h2><p>当执行拷贝操作时，常量是顶层const还是底层const的区别就非常明显：</p><blockquote><ul><li>顶层const没有影响。拷贝操作不会改变被拷贝对象的值，因此拷入和拷出的对象是否是常量无关紧要。</li></ul></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C++">i = ci;    <span class="hljs-comment">//ok: 拷贝ci的值，ci是一个顶层const，对此操作没有影响</span><br>p2 = p3;   <span class="hljs-comment">//ok: p2和p3指向的对象类型相同，p3顶层const部分不影响</span><br></code></pre></td></tr></table></figure><blockquote><ul><li>底层const的限制不能忽视。拷入和拷出的对象必须具有相同的底层const资格，或者两个对象的数据类型可以相互转换（一般来说，<font color='red'>被拷贝对象</font>从非const可以转换成const类型，反之则不行）</li></ul></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> *p = p3;       <span class="hljs-comment">//error: p3包含了底层const的定义，而p没有</span><br>p2 = p3;           <span class="hljs-comment">//ok: p2和p3都是底层的const</span><br>p2 = &amp;i;           <span class="hljs-comment">//ok: 非常量的int* 可以转换成const int*</span><br><span class="hljs-type">int</span> &amp;r = ci;       <span class="hljs-comment">//error: 普通的int&amp;不能绑定到int常量上</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> &amp;r2 = i; <span class="hljs-comment">//ok: const int&amp;可以绑定到一个普通的int上(在开发的过程最常见到函数传参方式）</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++学习笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>函数</title>
+    <link href="/cannie-luo.guthub.io/2024/06/22/%E5%87%BD%E6%95%B0/"/>
+    <url>/cannie-luo.guthub.io/2024/06/22/%E5%87%BD%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>hexo+github创建个人博客</title>
     <link href="/cannie-luo.guthub.io/2024/06/21/hexo+github%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <url>/cannie-luo.guthub.io/2024/06/21/hexo+github%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
