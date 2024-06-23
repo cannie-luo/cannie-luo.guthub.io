@@ -24,7 +24,7 @@
 <meta property="og:description" content="在C++中，声明一个变量的格式是类型 变量名，其中变量之间逗号分隔，以分号为结束。C++语言定义了几种基本类型：字符型、整型、浮点型、布尔型、void等，除此之外还提供了可用于自定义数据类型的机制，标准库利用这一机制定义更多复杂的类型，比如可变长度的string、vector等类型。开发者还可以根据修改组合的方式形成复合类型。 基本内置类型算术类型C++定义了字符类型、整型、浮点型、布尔型以及vo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-23T05:39:46.000Z">
-<meta property="article:modified_time" content="2024-06-23T09:32:16.022Z">
+<meta property="article:modified_time" content="2024-06-23T09:35:41.925Z">
 <meta property="article:author" content="愿作千风">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
@@ -319,10 +319,10 @@
 <table>
 <thead>
 <tr>
-<th align="left"><strong>类型名</strong></th>
-<th align="left"><strong>含义</strong></th>
-<th align="left"><strong>字节数</strong></th>
-<th align="left"><strong>取值范围</strong></th>
+<th align="left">类型名</th>
+<th align="left">含义</th>
+<th align="left">字节数</th>
+<th align="left">取值范围</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -464,7 +464,7 @@
 <li>标识符的长度没有限制，但是对大小写字母敏感。</li>
 </ul>
 </blockquote>
-<h3 id="名字的作用域"><a href="#名字的作用域" class="headerlink" title="名字的作用域"></a>名字的作用域</h3><p>那些定义在非某个作用域、函数体、类内的变量称为<strong>全局变量(global scope)</strong>,声明之后，该名字在整个程序范围内都可使用。最好在第一次使用变量时再去定义它。这样做更容易找到变量的定义位置，并且也可以赋给它一个比较合理的初始值。<br>作用域中一旦声明了某个名字，在它所嵌套着的所有作用域中都能访问该名字。同时，允许在内层作用域中重新定义外层作用域已有的名字，此时内层作用域中新定义的名字将屏蔽外层作用域的名字。<br>可以用作用域操作符<font color = 'red'> :: </font> 来覆盖默认的作用域规则。因为全局作用域本身并没有名字，所以当作用域操作符的左侧为空时，会向全局作用域发出请求获取作用域操作符右侧名字对应的变量</p>
+<h3 id="名字的作用域"><a href="#名字的作用域" class="headerlink" title="名字的作用域"></a>名字的作用域</h3><p>那些定义在非某个作用域、函数体、类内的变量称为<strong>全局变量(global scope)</strong>，声明之后，该名字在整个程序范围内都可使用。最好在第一次使用变量时再去定义它。这样做更容易找到变量的定义位置，并且也可以赋给它一个比较合理的初始值。<br>作用域中一旦声明了某个名字，在它所嵌套着的所有作用域中都能访问该名字。同时，允许在内层作用域中重新定义外层作用域已有的名字，此时内层作用域中新定义的名字将屏蔽外层作用域的名字。<br>可以用作用域操作符<font color = 'red'> :: </font> 来覆盖默认的作用域规则。因为全局作用域本身并没有名字，所以当作用域操作符的左侧为空时，会向全局作用域发出请求获取作用域操作符右侧名字对应的变量</p>
 
                 
               </div>
