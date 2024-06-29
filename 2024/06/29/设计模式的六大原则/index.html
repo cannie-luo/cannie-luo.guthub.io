@@ -16,22 +16,22 @@
   <meta name="author" content="愿作千风">
   <meta name="keywords" content="">
   
-    <meta name="description" content="函数的定义">
+    <meta name="description" content="面向对象的软件设计的六大原则 1.单一职责原则  原则思想： 一个方法只负责一件事情 描述：单一职责原则很简单，一个方法  一个类只负责一个职责，各个职责的程序改动，不影响其他程序的。 优点：降低类和类的耦合，提高的可读性，增加可维护和可拓展性，降低可变性风险   2.里氏替代原则  原则思想：使用的基类可以在任何地方使用继承的子类，完美的替换基类 描述：子类可以苦扩展父类的功能，但是不能改变父类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数">
-<meta property="og:url" content="https://cannie-luo.github.io/cannie-luo.guthub.io/2024/06/22/%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:title" content="设计模式的六大原则">
+<meta property="og:url" content="https://cannie-luo.github.io/cannie-luo.guthub.io/2024/06/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99/index.html">
 <meta property="og:site_name" content="愿作千风">
-<meta property="og:description" content="函数的定义">
+<meta property="og:description" content="面向对象的软件设计的六大原则 1.单一职责原则  原则思想： 一个方法只负责一件事情 描述：单一职责原则很简单，一个方法  一个类只负责一个职责，各个职责的程序改动，不影响其他程序的。 优点：降低类和类的耦合，提高的可读性，增加可维护和可拓展性，降低可变性风险   2.里氏替代原则  原则思想：使用的基类可以在任何地方使用继承的子类，完美的替换基类 描述：子类可以苦扩展父类的功能，但是不能改变父类">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-22T12:48:58.000Z">
-<meta property="article:modified_time" content="2024-06-26T13:36:47.963Z">
+<meta property="article:published_time" content="2024-06-28T18:08:38.000Z">
+<meta property="article:modified_time" content="2024-06-28T18:58:22.561Z">
 <meta property="article:author" content="愿作千风">
-<meta property="article:tag" content="C++">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>函数 - 愿作千风</title>
+  <title>设计模式的六大原则 - 愿作千风</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="函数"></span>
+            <span id="subtitle" data-typed-text="设计模式的六大原则"></span>
           
         </div>
 
@@ -237,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-06-22 20:48" pubdate>
-          2024年6月22日 晚上
+        <time datetime="2024-06-29 02:08" pubdate>
+          2024年6月29日 凌晨
         </time>
       </span>
     
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5 字
+          782 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          1 分钟
+          7 分钟
         
       </span>
     
@@ -305,12 +305,55 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">函数</h1>
+            <h1 id="seo-header">设计模式的六大原则</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h2>
+                <p>面向对象的软件设计的六大原则</p>
+<h2 id="1-单一职责原则"><a href="#1-单一职责原则" class="headerlink" title="1.单一职责原则"></a>1.单一职责原则</h2><blockquote>
+<ul>
+<li>原则思想： 一个方法只负责一件事情</li>
+<li>描述：单一职责原则很简单，一个方法  一个类只负责一个职责，各个职责的程序改动，不影响其他程序的。</li>
+<li>优点：降低类和类的耦合，提高的可读性，增加可维护和可拓展性，降低可变性风险</li>
+</ul>
+</blockquote>
+<h2 id="2-里氏替代原则"><a href="#2-里氏替代原则" class="headerlink" title="2.里氏替代原则"></a>2.里氏替代原则</h2><blockquote>
+<ul>
+<li>原则思想：使用的基类可以在任何地方使用继承的子类，完美的替换基类</li>
+<li>描述：子类可以苦扩展父类的功能，但是不能改变父类原有的功能。子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法，子类中可以增加自己特有的方法</li>
+<li>优点：增加程序的健壮性，即使增加了子类，原有的子类还可以继续运行，互不影响</li>
+</ul>
+</blockquote>
+<h2 id="3-依赖倒置原则"><a href="#3-依赖倒置原则" class="headerlink" title="3.依赖倒置原则"></a>3.依赖倒置原则</h2><blockquote>
+<ul>
+<li>原则思想：高层次的模块不应该依赖于低层次的模块，他们都应该依赖于抽象，抽象不应该依赖于具体实现，具体实现应该依赖于抽象。</li>
+<li>描述：类A直接依赖类B，假如要将类A改为依赖类C，则必须通过修改类A的代码来达成。这种场景下，类A一般是高层模块，负责复杂的业务逻辑；类B和类C是低层模块，负责基本的原子操作；假如修改类A，会给程序带来不必要的风险。</li>
+<li>优点：可以减少需求变化带来的工作量，做并行开发更加友好。</li>
+</ul>
+</blockquote>
+<h2 id="4-接口隔离原则"><a href="#4-接口隔离原则" class="headerlink" title="4.接口隔离原则"></a>4.接口隔离原则</h2><blockquote>
+<ul>
+<li>原则思想： 类和类之间应该建立在最小接口上</li>
+<li>描述： 类A通过接口依赖B， 类C通过接口依赖D，如果接口类A和类B不是最小的接口，则依赖的类B和类D必须要实现他们不需要的方法</li>
+<li>优点：提高程序的灵活度，提高内聚，减少对外交互，使得最小的接口做最多的事情</li>
+</ul>
+</blockquote>
+<h2 id="5-迪米特法则"><a href="#5-迪米特法则" class="headerlink" title="5.迪米特法则"></a>5.迪米特法则</h2><blockquote>
+<ul>
+<li>原则思想： 一个对象应当对其他对象有尽可能少地了解，简称类间解藕</li>
+<li>描述：一个类尽量减少对其他类的依赖，原则是低耦合，高内聚，只有使各个模块之间的耦合尽量的低，才能提高代码的复用率</li>
+<li>优点：低耦合，高内聚</li>
+</ul>
+</blockquote>
+<h2 id="6-开放封闭原则"><a href="#6-开放封闭原则" class="headerlink" title="6.开放封闭原则"></a>6.开放封闭原则</h2><blockquote>
+<ul>
+<li>原则思想：尽量通过扩展软件实体来解决需求变化，而不是通过修改已有的代码来完成变化</li>
+<li>描述： 一个软件产品在生命周期内，都会发生变化，既然变化是一个既定的事实，我们就应该在设计的时候尽量适应这些变化，以提高项目的稳定性和灵活性</li>
+<li>优点： 单一原则告诉我们，每个类都有自己负责的职责，里氏替换原则不能破坏继承管关系</li>
+</ul>
+</blockquote>
+
                 
               </div>
             
@@ -322,7 +365,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/cannie-luo.guthub.io/tags/C/" class="print-no-link">#C++</a>
+        <a href="/cannie-luo.guthub.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="print-no-link">#设计模式</a>
       
     </div>
   
@@ -334,8 +377,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>函数</div>
-      <div>https://cannie-luo.github.io/cannie-luo.guthub.io/2024/06/22/函数/</div>
+      <div>设计模式的六大原则</div>
+      <div>https://cannie-luo.github.io/cannie-luo.guthub.io/2024/06/29/设计模式的六大原则/</div>
     </div>
     <div class="license-meta">
       
@@ -347,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年6月22日</div>
+          <div>2024年6月29日</div>
         </div>
       
       
@@ -379,18 +422,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/cannie-luo.guthub.io/2024/06/25/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%B7%A6%E5%80%BC%E3%80%81%E5%8F%B3%E5%80%BC%E3%80%81%E5%B7%A6%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%BC%95%E7%94%A8/" title="深入理解左值、右值、左引用和右引用">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">深入理解左值、右值、左引用和右引用</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/cannie-luo.guthub.io/2024/03/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99%E2%80%94%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99/" title="设计模式的六大原则.md">
-                        <span class="hidden-mobile">设计模式的六大原则.md</span>
+                      <a href="/cannie-luo.guthub.io/2024/06/25/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%B7%A6%E5%80%BC%E3%80%81%E5%8F%B3%E5%80%BC%E3%80%81%E5%B7%A6%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%BC%95%E7%94%A8/" title="深入理解左值、右值、左引用和右引用">
+                        <span class="hidden-mobile">深入理解左值、右值、左引用和右引用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

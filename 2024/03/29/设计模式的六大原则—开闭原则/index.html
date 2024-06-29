@@ -16,22 +16,22 @@
   <meta name="author" content="愿作千风">
   <meta name="keywords" content="">
   
-    <meta name="description" content="如何理解顶层const和底层const《C++ primer》中写到：   顶层const表示指针本身是一个常量 底层const表示指针所指的对象是一个常量指针类型既可以是顶层const又可以是底层const。   123456int i &#x3D; 0;int *const p1 &#x3D; &amp;i;        &#x2F;&#x2F; 不能改变p1的值，这是一个顶层constconst int ci &#x3D; 2;	   &#x2F;">
+    <meta name="description" content="1.什么是开闭原则开放封闭原则((OCP, Open Closed Principle)是所有面向对象原则的核心。软件设计本身所追求的目标就是封装变化、降低耦合，而开放封闭原则正是对着一目标的最直接体现。其他的设计原则，很多时候是为实现这一目标服务的。 1.1.开闭原则的定义  Software entities like classes,modules and functions should">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解顶层const和底层const">
-<meta property="og:url" content="https://cannie-luo.github.io/cannie-luo.guthub.io/2024/06/23/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E9%A1%B6%E5%B1%82const%E5%92%8C%E5%BA%95%E5%B1%82const/index.html">
+<meta property="og:title" content="设计模式的六大原则.md">
+<meta property="og:url" content="https://cannie-luo.github.io/cannie-luo.guthub.io/2024/03/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99%E2%80%94%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99/index.html">
 <meta property="og:site_name" content="愿作千风">
-<meta property="og:description" content="如何理解顶层const和底层const《C++ primer》中写到：   顶层const表示指针本身是一个常量 底层const表示指针所指的对象是一个常量指针类型既可以是顶层const又可以是底层const。   123456int i &#x3D; 0;int *const p1 &#x3D; &amp;i;        &#x2F;&#x2F; 不能改变p1的值，这是一个顶层constconst int ci &#x3D; 2;	   &#x2F;">
+<meta property="og:description" content="1.什么是开闭原则开放封闭原则((OCP, Open Closed Principle)是所有面向对象原则的核心。软件设计本身所追求的目标就是封装变化、降低耦合，而开放封闭原则正是对着一目标的最直接体现。其他的设计原则，很多时候是为实现这一目标服务的。 1.1.开闭原则的定义  Software entities like classes,modules and functions should">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-06-23T05:21:23.000Z">
-<meta property="article:modified_time" content="2024-06-23T05:30:02.583Z">
+<meta property="article:published_time" content="2024-03-28T16:39:15.000Z">
+<meta property="article:modified_time" content="2024-06-28T18:14:30.247Z">
 <meta property="article:author" content="愿作千风">
-<meta property="article:tag" content="C++">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>深入理解顶层const和底层const - 愿作千风</title>
+  <title>设计模式的六大原则.md - 愿作千风</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -226,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="深入理解顶层const和底层const"></span>
+            <span id="subtitle" data-typed-text="设计模式的六大原则.md"></span>
           
         </div>
 
@@ -237,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-06-23 13:21" pubdate>
-          2024年6月23日 下午
+        <time datetime="2024-03-29 00:39" pubdate>
+          2024年3月29日 凌晨
         </time>
       </span>
     
@@ -249,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          567 字
+          1.4k 字
         
       </span>
     
@@ -260,7 +260,7 @@
         
         
         
-          5 分钟
+          12 分钟
         
       </span>
     
@@ -305,47 +305,66 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">深入理解顶层const和底层const</h1>
+            <h1 id="seo-header">设计模式的六大原则.md</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="如何理解顶层const和底层const"><a href="#如何理解顶层const和底层const" class="headerlink" title="如何理解顶层const和底层const"></a>如何理解顶层const和底层const</h2><p>《C++ primer》中写到：</p>
-<blockquote>
+                <h2 id="1-什么是开闭原则"><a href="#1-什么是开闭原则" class="headerlink" title="1.什么是开闭原则"></a>1.什么是开闭原则</h2><p>开放封闭原则((OCP, Open Closed Principle)是所有面向对象原则的核心。软件设计本身所追求的目标就是封装变化、降低耦合，而开放封闭原则正是对着一目标的最直接体现。其他的设计原则，很多时候是为实现这一目标服务的。</p>
+<h3 id="1-1-开闭原则的定义"><a href="#1-1-开闭原则的定义" class="headerlink" title="1.1.开闭原则的定义"></a>1.1.开闭原则的定义</h3><hr>
+<p> Software entities like classes,modules and functions should be open for extension but closed for modifications 一个软件实体, 如类, 模块, 函数等应该对扩展开放, 对修改封闭.</p>
+<hr>
+<p>这也是开放封闭原则的核心思想：对扩展开饭，对修改封闭。</p>
+<h3 id="1-2-含义"><a href="#1-2-含义" class="headerlink" title="1.2.含义"></a>1.2.含义</h3><blockquote>
 <ul>
-<li>顶层const表示指针本身是一个常量</li>
-<li>底层const表示指针所指的对象是一个常量<br>指针类型既可以是顶层const又可以是底层const。</li>
+<li>对扩展开放，意味着有新的需求或变化时，可以对现有代码进行扩展，以适应新的情况;</li>
+<li>对修改封闭，意味着类的设计一旦完成，就可以独立完成其工作，而不要对已有类的代码进行修改。</li>
 </ul>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br><span class="hljs-type">int</span> *<span class="hljs-type">const</span> p1 = &amp;i;        <span class="hljs-comment">// 不能改变p1的值，这是一个顶层const</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> ci = <span class="hljs-number">2</span>;	   <span class="hljs-comment">// 不能改变ci的值，这是一个顶层const</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> *p2 = &amp;ci;       <span class="hljs-comment">// 可以改变p2的值，这是一个底层const</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> *<span class="hljs-type">const</span> p3 = p2;  <span class="hljs-comment">// 靠右的const是顶层const，靠左的const是底层const</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> &amp;ri = ci;        <span class="hljs-comment">// 用于声明引用的const都是底层const</span><br></code></pre></td></tr></table></figure>
-<p>即（除了const int ci &#x3D; 2; &#x2F;&#x2F;是顶层const): </p>
+<h2 id="2-如何实现开闭原则？"><a href="#2-如何实现开闭原则？" class="headerlink" title="2.如何实现开闭原则？"></a>2.如何实现开闭原则？</h2><p>在具体的开发中，需求总是变化， 那么对软件设计者来说如何在不对原来系统修改的前提下，实现灵活的扩展？这就是开闭原则要实现的。</p>
+<blockquote>
+<p> 开放-封闭原则，设计软件要容易维护且不容易出问题的最好办法，就是多扩展，少修改。</p>
+</blockquote>
+<h3 id="2-1-依赖和抽象"><a href="#2-1-依赖和抽象" class="headerlink" title="2.1 依赖和抽象"></a>2.1 依赖和抽象</h3><p>实现开放封闭的核心思想就是面向抽象编程，而不是面对具体编程，因为抽象是相对稳定的。</p>
 <blockquote>
 <ul>
-<li>如果const右结合修饰为类型或者*，那这个const就是一个底层const:</li>
-<li>如果const右结合修饰为标识符，那这个const就是一个顶层const;</li>
+<li>让类依赖于固定的抽象，所以修改是封闭的；</li>
+<li>通过面向对象的继承和多态机制，可以实现对抽象体的继承，通过覆写其方法来改变固有行为，实现新的扩展方法，所以对于扩展就是开放的。</li>
 </ul>
 </blockquote>
-<p>是不是感觉很绕口，个人的理解是</p>
+<h3 id="2-2-如何落地开闭原则"><a href="#2-2-如何落地开闭原则" class="headerlink" title="2.2.如何落地开闭原则"></a>2.2.如何落地开闭原则</h3><p>如果当前的设计不符合开放封闭原则，则必须进行重构。常用的设计模式主要有<strong>模板方法（Template Method）设计模式</strong>和<strong>策略（Strategy）设计模式</strong>。而封装变化，是实现这一原则的重要手段，将经常发生变化的部分封装为一个类。</p>
+<h3 id="2-3-开闭原则的重要性"><a href="#2-3-开闭原则的重要性" class="headerlink" title="2.3.开闭原则的重要性"></a>2.3.开闭原则的重要性</h3><h4 id="对测试的影响"><a href="#对测试的影响" class="headerlink" title="对测试的影响"></a>对测试的影响</h4><p>开闭原则可以保持原有的测试代码仍然能运行，只需要对扩展的代码进行测试。</p>
+<h4 id="提高代码的可复用性"><a href="#提高代码的可复用性" class="headerlink" title="提高代码的可复用性"></a>提高代码的可复用性</h4><p>在面向对象的设计中，所有的逻辑都是从原子逻辑组合而来的，而不是在一个类中独立实现一个业务逻辑。只有这样代码才可以复用， 粒度越小，被复用的可能性越大。</p>
+<h4 id="提高代码、系统的可维护性"><a href="#提高代码、系统的可维护性" class="headerlink" title="提高代码、系统的可维护性"></a>提高代码、系统的可维护性</h4><p>面向对象开发的原则</p>
+<h3 id="2-4-如何使用开闭原则"><a href="#2-4-如何使用开闭原则" class="headerlink" title="2.4.如何使用开闭原则"></a>2.4.如何使用开闭原则</h3><h4 id="1-抽象约束"><a href="#1-抽象约束" class="headerlink" title="1.抽象约束"></a>1.抽象约束</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">第一，通过接口或者抽象类约束扩展，对扩展进行边界限定，不允许出现在接口或抽象类中不存在的public方法；<br>第二，参数类型、引用对象尽量使用接口或者抽象类，而不是实现类；<br>第三，抽象层尽量保持稳定，一旦确定即不允许修改。<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-元数据控制模块方法"><a href="#2-元数据控制模块方法" class="headerlink" title="2.元数据控制模块方法"></a>2.元数据控制模块方法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jar">元数据就是用来描述环境和数据的数据，通俗地说就是配置参数，参数可以从文件中获得，也可以从数据库中获得。<br>Spring容器就是一个典型的元数据控制模块行为的例子，其中达到极致的就是控制反转（Inversion of Control）<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-制定项目章程"><a href="#3-制定项目章程" class="headerlink" title="3.制定项目章程"></a>3.制定项目章程</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">在一个团队中，建立项目章程是非常重要的，因为章程中指定了所有人员都必须遵守的约定，对项目来说，约定优于配置。<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-封装变化"><a href="#4-封装变化" class="headerlink" title="4.封装变化"></a>4.封装变化</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">对变化的封装包含两层含义：<br>第一，将相同的变化封装到一个接口或者抽象类中；<br>第二，将不同的变化封装到不同的接口或抽象类中，不应该有两个不同的变化出现在同一个接口或抽象类中。<br></code></pre></td></tr></table></figure>
+
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">GraphicEditor</span>&#123;<br><span class="hljs-keyword">public</span>:<br>  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">(Shape shape)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (shape.type == <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-built_in">drawRectangle</span>();<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(shape.type == <span class="hljs-number">2</span>) &#123;<br>            <span class="hljs-built_in">drawCircle</span>();<br>        &#125;<br>   &#125;<br>   <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">drawRectangle</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;画长方形&quot;</span>);<br>   &#125;<br>   <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">drawCircle</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;画圆形&quot;</span>);<br>    &#125;<br>&#125;;<br><span class="hljs-keyword">class</span>  <span class="hljs-title class_">Shape</span> &#123;<br>   <span class="hljs-type">int</span> type;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Rectangl</span>: Shape&#123;<br><span class="hljs-keyword">public</span>:<br>  <span class="hljs-built_in">Rectangle</span>() &#123;<br>    type = <span class="hljs-number">1</span>;<br>  &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Circle</span>: Shape &#123;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Circle</span>() &#123;<br>      type = <span class="hljs-number">2</span>;<br>    &#125;<br>    <br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>上面这段代码符合要求吗？如果需要增加一个形状呢，比如三角形，需要做出更改：</p>
 <blockquote>
 <ul>
-<li>被修饰的变量本身无法改变的const是顶层const；</li>
-<li>通过指针或者引用等间接途径来限制目标内容不可改变的const是底层const;</li>
+<li>需要增加一个三角形的类，继承自Shape</li>
+<li>需要增加一个画三角形的方法drawTrriage()</li>
+<li>需要draw方法中增加一种类型type &#x3D; 3 的处理方案</li>
 </ul>
 </blockquote>
-<p>实际就是取决const修饰的是谁，从右往左看const是修饰谁决定</p>
-<h2 id="顶层const和底层const的区别"><a href="#顶层const和底层const的区别" class="headerlink" title="顶层const和底层const的区别"></a>顶层const和底层const的区别</h2><p>当执行拷贝操作时，常量是顶层const还是底层const的区别就非常明显：</p>
-<blockquote>
+<p>这就违背了开闭原则——对扩展开放，对修改关闭，增加一个类型，需要修改三处代码</p>
+<p>我们设计一个符合开闭原则的代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">GraphicEditor</span>&#123;<br><span class="hljs-keyword">public</span>:<br>  <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">(Shape shape)</span> </span>&#123;<br>       shape.<span class="hljs-built_in">draw</span>();<br>   &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Shape</span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span>  </span>= <span class="hljs-number">0</span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Rectangl</span>: Shape&#123;<br><span class="hljs-keyword">public</span>:<br>  <span class="hljs-built_in">Rectangle</span>() &#123;&#125;<br>  <span class="hljs-function"><span class="hljs-keyword">override</span> <span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span></span>&#123;<br>         System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;画矩形&quot;</span>);<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Circle</span>: Shape &#123;<br><span class="hljs-keyword">public</span> :<br>  <span class="hljs-built_in">Circle</span>() &#123;&#125;<br>  <span class="hljs-function"><span class="hljs-keyword">override</span> <span class="hljs-type">void</span> <span class="hljs-title">draw</span><span class="hljs-params">()</span></span>&#123;<br>         System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;画圆形&quot;</span>);<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>那么现在我们新增一个形状，需要实现一个继承Shape的类，实现draw方法，GraphicEditor中调用对象的draw便可以了。整个的过程都是在扩展，而没有修改原来的类，符合开闭原则。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
 <ul>
-<li>顶层const没有影响。拷贝操作不会改变被拷贝对象的值，因此拷入和拷出的对象是否是常量无关紧要。</li>
+<li>遵守开闭原则可以提高软件扩展性和维护性。</li>
+<li>大部分的设计模式和设计原则都是在实现开闭原则。</li>
 </ul>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C++">i = ci;    <span class="hljs-comment">//ok: 拷贝ci的值，ci是一个顶层const，对此操作没有影响</span><br>p2 = p3;   <span class="hljs-comment">//ok: p2和p3指向的对象类型相同，p3顶层const部分不影响</span><br></code></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>底层const的限制不能忽视。拷入和拷出的对象必须具有相同的底层const资格，或者两个对象的数据类型可以相互转换（一般来说，<font color='red'>被拷贝对象</font>从非const可以转换成const类型，反之则不行）</li>
-</ul>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> *p = p3;       <span class="hljs-comment">//error: p3包含了底层const的定义，而p没有</span><br>p2 = p3;           <span class="hljs-comment">//ok: p2和p3都是底层的const</span><br>p2 = &amp;i;           <span class="hljs-comment">//ok: 非常量的int* 可以转换成const int*</span><br><span class="hljs-type">int</span> &amp;r = ci;       <span class="hljs-comment">//error: 普通的int&amp;不能绑定到int常量上</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> &amp;r2 = i; <span class="hljs-comment">//ok: const int&amp;可以绑定到一个普通的int上(在开发的过程最常见到函数传参方式）</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -354,32 +373,11 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/cannie-luo.guthub.io/categories/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="category-chain-item">C++学习笔记</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/cannie-luo.guthub.io/tags/C/" class="print-no-link">#C++</a>
+        <a href="/cannie-luo.guthub.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="print-no-link">#设计模式</a>
       
     </div>
   
@@ -391,8 +389,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>深入理解顶层const和底层const</div>
-      <div>https://cannie-luo.github.io/cannie-luo.guthub.io/2024/06/23/深入理解顶层const和底层const/</div>
+      <div>设计模式的六大原则.md</div>
+      <div>https://cannie-luo.github.io/cannie-luo.guthub.io/2024/03/29/设计模式的六大原则—开闭原则/</div>
     </div>
     <div class="license-meta">
       
@@ -404,7 +402,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年6月23日</div>
+          <div>2024年3月29日</div>
         </div>
       
       
@@ -436,9 +434,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/cannie-luo.guthub.io/2024/06/23/%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%9E%8B/" title="变量和类型">
+                      <a href="/cannie-luo.guthub.io/2024/06/22/%E5%87%BD%E6%95%B0/" title="函数">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">变量和类型</span>
+                        <span class="hidden-mobile">函数</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -446,8 +444,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/cannie-luo.guthub.io/2024/06/22/%E5%87%BD%E6%95%B0/" title="函数">
-                        <span class="hidden-mobile">函数</span>
+                      <a href="/cannie-luo.guthub.io/2024/03/26/%E5%AF%B9%E7%B1%BBconst%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/" title="对类const成员函数的理解">
+                        <span class="hidden-mobile">对类const成员函数的理解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
